@@ -1,0 +1,24 @@
+services:
+  web:
+    image: node:22-slim
+    working_dir: /app/plugins/data-analytics
+    volumes:
+      - ./:/app
+      - node_modules:/app/plugins/data-analytics/node_modules
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - BASE44_PREVIEW_MODE=${BASE44_PREVIEW_MODE:-}
+      - __VITE_ADDITIONAL_SERVER_ALLOWED_HOSTS
+    command: ["sh", "-ec", "sed -i 's|https://socket-firewall-registry.gateway.unified-30.internal.api.openai.org/npm/|https://registry.npmjs.org/|g' package-lock.json && npm ci && exec npx vite --host 0.0.0.0 --port 3000"]
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://localhost:3000/').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 10s
+      timeout: 5s
+      retries: 6
+      start_period: 60s
+    restart: on-failure
+
+volumes:
+  node_modules:

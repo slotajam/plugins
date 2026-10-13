@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Codex Plugins — Data Analytics Widgets</title>
+    <link rel="stylesheet" href="./styles/codex-theme.css" />
+    <link rel="stylesheet" href="./analytics-app/tokens.css" />
+    <style>
+      body {
+        max-width: 640px;
+        margin: 0 auto;
+        padding: var(--codex-space-8) var(--codex-space-6);
+        line-height: 1.6;
+      }
+      h1 { font-size: var(--codex-heading-lg); margin: 0 0 var(--codex-space-1); }
+      .lede { color: var(--ds-text-secondary); margin: 0 0 var(--codex-space-8); font-size: var(--codex-font-size-lg); }
+      ul { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--codex-space-3); }
+      li a {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        padding: var(--codex-space-5) var(--codex-space-6);
+        border: 1px solid var(--ds-border-subtle);
+        border-radius: var(--codex-radius-xl);
+        text-decoration: none;
+        color: var(--ds-text);
+        background: var(--ds-surface);
+        transition: border-color var(--codex-transition), box-shadow var(--codex-transition);
+      }
+      li a:hover {
+        border-color: var(--ds-blue-bright);
+        box-shadow: var(--codex-shadow-sm);
+      }
+      li a:focus-visible {
+        outline: 2px solid var(--ds-blue-bright);
+        outline-offset: 2px;
+      }
+      li a strong { font-size: var(--codex-font-size-lg); font-weight: 600; }
+      li a span { font-size: var(--codex-font-size-sm); color: var(--ds-text-tertiary); }
+    </style>
+  </head>
+  <body>
+    <h1>Data Analytics Widgets</h1>
+    <p class="lede">Interactive preview of the Codex Data Analytics plugin widgets.</p>
+    <ul>
+      <li>
+        <a href="./datascience-chart-widget.html">
+          <strong>Chart Widget</strong>
+          <span>Interactive chart with visualization, table, and query views</span>
+        </a>
+      </li>
+      <li>
+        <a href="./datascience-table-widget.html">
+          <strong>Table Widget</strong>
+          <span>Sortable data table with pagination</span>
+        </a>
+      </li>
+      <li>
+        <a href="./datascience-artifact-widget.html">
+          <strong>Artifact Widget</strong>
+          <span>React-based analytics artifact viewer</span>
+        </a>
+      </li>
+      <li>
+        <a href="./portable-artifact-reader.html">
+          <strong>Portable Artifact Reader</strong>
+          <span>Standalone report reader</span>
+        </a>
+      </li>
+    </ul>
+  </body>
+</html>
