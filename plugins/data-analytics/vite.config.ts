@@ -58,7 +58,7 @@ const appAliases = usesReactApp
     ]
   : [];
 
-export default defineConfig({
+export default defineConfig(({ command }) => ({
   root: "src",
   plugins: [portableTokenTransform, viteSingleFile()],
   resolve: {
@@ -72,8 +72,6 @@ export default defineConfig({
     modulePreload: isPortableArtifactReader ? false : undefined,
     minify: usesReactApp ? "oxc" : false,
     cssMinify: false,
-    rollupOptions: {
-      input
-    }
+    rollupOptions: command === "build" ? { input } : undefined
   }
-});
+}));
